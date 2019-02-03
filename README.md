@@ -6,3 +6,6 @@ mvn spring-boot:run
 What port app using?
 server.port=8180
 
+First endpoint created is <code>/categorias</code> and working on!
+
+
