@@ -1,33 +1,28 @@
 package br.com.mv.mvspring.domain;
 
+import br.com.mv.mvspring.domain.common.Entidade;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class Categoria implements Serializable {
+public class Categoria extends Entidade implements Serializable {
 
     private static final long serialVersionUID = 8566568370952844815L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @Column
     private String nome;
+
+    @ManyToMany(mappedBy = "categorias")
+    private List<Produto> produtos = new ArrayList<>();
 
     public Categoria() {
     }
 
     public Categoria(String nome) {
         this.nome = nome;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -38,18 +33,11 @@ public class Categoria implements Serializable {
         this.nome = nome;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Categoria categoria = (Categoria) o;
-
-        return id != null ? id.equals(categoria.id) : categoria.id == null;
+    public List<Produto> getProdutos() {
+        return produtos;
     }
 
-    @Override
-    public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 }

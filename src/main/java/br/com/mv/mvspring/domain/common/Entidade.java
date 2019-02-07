@@ -4,8 +4,10 @@ package br.com.mv.mvspring.domain.common;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.util.Objects;
 
+@MappedSuperclass
 public class Entidade {
 
     @Id
