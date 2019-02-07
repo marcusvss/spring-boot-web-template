@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/categorias")
@@ -24,7 +22,7 @@ public class CategoriasRS {
     @RequestMapping(method = RequestMethod.GET)
     public List<Categoria> filrar() {
 
-        List<Categoria> list = listarCategorias();
+        List<Categoria> list = categoriaService.buscarCategorias();
 
         return list;
     }
@@ -35,16 +33,4 @@ public class CategoriasRS {
 
         return ResponseEntity.ok().body(categoria);
     }
-
-    private List<Categoria> listarCategorias() {
-        Categoria cat1 = new Categoria(1l, "Informatica");
-        Categoria cat2 = new Categoria(2l, "Escritorio");
-
-        List<Categoria> list = new ArrayList<Categoria>();
-        list.add(cat1);
-        list.add(cat2);
-        return list;
-    }
-
-
 }
