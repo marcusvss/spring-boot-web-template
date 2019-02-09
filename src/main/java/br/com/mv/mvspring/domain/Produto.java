@@ -1,6 +1,7 @@
 package br.com.mv.mvspring.domain;
 
 import br.com.mv.mvspring.domain.common.Entidade;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,6 +18,7 @@ public class Produto extends Entidade implements Serializable {
     @Column
     private Double preco;
 
+    @JsonBackReference
     @ManyToMany
     @JoinTable(name = "PRODUTOS_CATEGORIAS",
         joinColumns = @JoinColumn(name = "produto_id"),

@@ -1,6 +1,7 @@
 package br.com.mv.mvspring.services;
 
 import br.com.mv.mvspring.domain.Categoria;
+import br.com.mv.mvspring.exceptions.ObjectNotFoundException;
 import br.com.mv.mvspring.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     @Override
     public Categoria buscarCategoriaPorId(Long id) {
-        return categoriaRepository.findById(id).orElse(null);
+        return categoriaRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Categoria com id: " + id + " nao econtrada."));
     }
 
     @Override
