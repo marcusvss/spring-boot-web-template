@@ -17,6 +17,20 @@ Second endpoint created. filter categorias by cod <code>/categorias/{cod}</code>
   - Using @PathVariable to get value and set up param cod in the method;
   - With <code>stream().filter()</code> of java8, we can return just category filtered in url by cod;
 
-
-
+7/2/19  
+Implements domain Produtos as well its Service and Repository
+  - Mapped with <code>@ManyToMany</code> in Categoria Entity
+  - Categoria mapped as <code>@ManyToMany</code> in Produtos Entiy
+  - Then hibernate auto-created a relationsip table for union the tables
+  
+9/2/19  
+Resolving some problens of reference ciclic
+  - Using <code>@JsonManagedReference</code> and <code>@JsonBackReference</code>
+  
+10/2/19  
+Adding Cidade and Estado domain
+  - Create entities Cidade and Estado
+  - Create endPoint <code>/estados/</code>
+  - Using <code>@OneToMany</code> and <code>@ManyToOne</code> to relation the domains
+  
 
