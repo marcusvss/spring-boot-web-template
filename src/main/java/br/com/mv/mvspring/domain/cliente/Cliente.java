@@ -2,11 +2,12 @@ package br.com.mv.mvspring.domain.cliente;
 
 import br.com.mv.mvspring.domain.common.Entidade;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Cliente extends Entidade implements Serializable {
@@ -21,14 +22,24 @@ public class Cliente extends Entidade implements Serializable {
     @Column
     private String cpfCnpj;
 
-    @Enumerated(value = EnumType.ORDINAL)
-    private TipoPessoa tipoPessoa;
+    @Column
+    private Integer tipoPessoa;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Endereco> enderecos = new ArrayList<>();
+
+    @ElementCollection
+    @CollectionTable(name = "TELEFONE")
+    private Set<String> telefones = new HashSet<>();
+
+    public Cliente() {
+    }
 
     public Cliente(String nome, String email, String cpfCnpj, TipoPessoa tipoPessoa) {
         this.nome = nome;
         this.email = email;
         this.cpfCnpj = cpfCnpj;
-        this.tipoPessoa = tipoPessoa;
+        this.tipoPessoa = tipoPessoa.getCod();
     }
 
     public String getNome() {
@@ -56,10 +67,26 @@ public class Cliente extends Entidade implements Serializable {
     }
 
     public TipoPessoa getTipoPessoa() {
-        return tipoPessoa;
+        return TipoPessoa.toEnum(tipoPessoa);
     }
 
     public void setTipoPessoa(TipoPessoa tipoPessoa) {
-        this.tipoPessoa = tipoPessoa;
+        this.tipoPessoa = tipoPessoa.getCod();
+    }
+
+    public Set<String> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(Set<String> telefones) {
+        this.telefones = telefones;
+    }
+
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
     }
 }
