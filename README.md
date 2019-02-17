@@ -12,10 +12,10 @@ First endpoint created is <code>/categorias</code> and working on!
   - <code>@RequestMapping</code> to map a path of REST class;
 
 3/2/19  
-Second endpoint created. filter categorias by id <code>/categorias/{id}</code>
-  - Using @RequestMapping to add value to <code>{id}</code>;
-  - Using @PathVariable to get value and set up param id in the method;
-  - With <code>stream().filter()</code> of java8, we can return just category filtered in url by id;
+Second endpoint created. filter categorias by cod <code>/categorias/{cod}</code>
+  - Using @RequestMapping to add value to <code>{cod}</code>;
+  - Using @PathVariable to get value and set up param cod in the method;
+  - With <code>stream().filter()</code> of java8, we can return just category filtered in url by cod;
 
 
 

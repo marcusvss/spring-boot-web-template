@@ -1,7 +1,7 @@
 package br.com.mv.mvspring.rs;
 
-import br.com.mv.mvspring.domain.estoque.Categoria;
-import br.com.mv.mvspring.services.CategoriaService;
+import br.com.mv.mvspring.domain.cliente.Cliente;
+import br.com.mv.mvspring.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/categorias")
-public class CategoriasRS {
+@RequestMapping(value = "/cliente")
+public class ClientesRS {
 
     @Autowired
-    private CategoriaService categoriaService;
+    private ClienteService clienteService;
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Categoria> filrar() {
+    public List<Cliente> filrar() {
 
-        List<Categoria> list = categoriaService.buscarCategorias();
+        List<Cliente> list = clienteService.buscarClientes();
 
         return list;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public ResponseEntity<?> filrarPorId(@PathVariable(value = "id") Long id) {
-        Categoria categoria = categoriaService.buscarCategoriaPorId(id);
+        Cliente cliente = clienteService.buscarClientePorId(id);
 
-        return ResponseEntity.ok().body(categoria);
+        return ResponseEntity.ok().body(cliente);
     }
 }

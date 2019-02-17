@@ -1,6 +1,6 @@
 package br.com.mv.mvspring.services;
 
-import br.com.mv.mvspring.domain.Produto;
+import br.com.mv.mvspring.domain.estoque.Produto;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package br.com.mv.mvspring.domain;
+package br.com.mv.mvspring.domain.estoque;
 
 import br.com.mv.mvspring.domain.common.Entidade;
 import com.fasterxml.jackson.annotation.JsonBackReference;

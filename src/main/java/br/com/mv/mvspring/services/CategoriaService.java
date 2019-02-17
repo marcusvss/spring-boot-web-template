@@ -1,6 +1,6 @@
 package br.com.mv.mvspring.services;
 
-import br.com.mv.mvspring.domain.Categoria;
+import br.com.mv.mvspring.domain.estoque.Categoria;
 
 import java.util.List;
 

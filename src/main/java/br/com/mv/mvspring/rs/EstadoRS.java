@@ -1,6 +1,6 @@
 package br.com.mv.mvspring.rs;
 
-import br.com.mv.mvspring.domain.Estado;
+import br.com.mv.mvspring.domain.logistica.Estado;
 import br.com.mv.mvspring.services.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

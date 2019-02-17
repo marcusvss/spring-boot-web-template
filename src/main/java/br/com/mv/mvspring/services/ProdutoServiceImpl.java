@@ -1,8 +1,6 @@
 package br.com.mv.mvspring.services;
 
-import br.com.mv.mvspring.domain.Categoria;
-import br.com.mv.mvspring.domain.Produto;
-import br.com.mv.mvspring.repositories.CategoriaRepository;
+import br.com.mv.mvspring.domain.estoque.Produto;
 import br.com.mv.mvspring.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +14,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     private ProdutoRepository produtoRepository;
 
     @Override
-    public Produto buscarProdutoPorId(Long id) {
+    public Produto   buscarProdutoPorId(Long id) {
         return produtoRepository.findById(id).orElse(null);
     }
 

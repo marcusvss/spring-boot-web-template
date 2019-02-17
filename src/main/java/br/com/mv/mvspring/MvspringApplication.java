@@ -1,9 +1,10 @@
 package br.com.mv.mvspring;
 
-import br.com.mv.mvspring.domain.Categoria;
-import br.com.mv.mvspring.domain.Cidade;
-import br.com.mv.mvspring.domain.Estado;
-import br.com.mv.mvspring.domain.Produto;
+
+import br.com.mv.mvspring.domain.logistica.Cidade;
+import br.com.mv.mvspring.domain.logistica.Estado;
+import br.com.mv.mvspring.domain.estoque.Categoria;
+import br.com.mv.mvspring.domain.estoque.Produto;
 import br.com.mv.mvspring.repositories.CategoriaRepository;
 import br.com.mv.mvspring.repositories.CidadeRepository;
 import br.com.mv.mvspring.repositories.EstadoRespository;
@@ -13,10 +14,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class MvspringApplication implements CommandLineRunner {

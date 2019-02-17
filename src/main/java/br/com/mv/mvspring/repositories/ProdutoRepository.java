@@ -1,7 +1,6 @@
 package br.com.mv.mvspring.repositories;
 
-import br.com.mv.mvspring.domain.Categoria;
-import br.com.mv.mvspring.domain.Produto;
+import br.com.mv.mvspring.domain.estoque.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

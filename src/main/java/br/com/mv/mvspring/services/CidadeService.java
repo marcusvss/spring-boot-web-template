@@ -1,6 +1,6 @@
 package br.com.mv.mvspring.services;
 
-import br.com.mv.mvspring.domain.Cidade;
+import br.com.mv.mvspring.domain.logistica.Cidade;
 
 import java.util.List;
 
