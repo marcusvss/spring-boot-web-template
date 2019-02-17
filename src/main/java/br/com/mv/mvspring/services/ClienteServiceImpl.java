@@ -1,6 +1,7 @@
 package br.com.mv.mvspring.services;
 
 import br.com.mv.mvspring.domain.cliente.Cliente;
+import br.com.mv.mvspring.domain.estoque.Categoria;
 import br.com.mv.mvspring.exceptions.ObjectNotFoundException;
 import br.com.mv.mvspring.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public Cliente buscarClientePorId(Long id) {
-        return clienteRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Categoria com id: " + id + " nao econtrada."));
+        return clienteRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Cliente com id: " + id + " nao econtrada."));
     }
 
     @Override

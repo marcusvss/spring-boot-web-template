@@ -22,13 +22,13 @@ public class Cliente extends Entidade implements Serializable {
     private String cpfCnpj;
 
     @Enumerated(value = EnumType.ORDINAL)
-    private TipoCliente tipoCliente;
+    private TipoPessoa tipoPessoa;
 
-    public Cliente(String nome, String email, String cpfCnpj, TipoCliente tipoCliente) {
+    public Cliente(String nome, String email, String cpfCnpj, TipoPessoa tipoPessoa) {
         this.nome = nome;
         this.email = email;
         this.cpfCnpj = cpfCnpj;
-        this.tipoCliente = tipoCliente;
+        this.tipoPessoa = tipoPessoa;
     }
 
     public String getNome() {
@@ -55,11 +55,11 @@ public class Cliente extends Entidade implements Serializable {
         this.cpfCnpj = cpfCnpj;
     }
 
-    public TipoCliente getTipoCliente() {
-        return tipoCliente;
+    public TipoPessoa getTipoPessoa() {
+        return tipoPessoa;
     }
 
-    public void setTipoCliente(TipoCliente tipoCliente) {
-        this.tipoCliente = tipoCliente;
+    public void setTipoPessoa(TipoPessoa tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
     }
 }
