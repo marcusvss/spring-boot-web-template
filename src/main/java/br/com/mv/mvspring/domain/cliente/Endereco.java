@@ -2,6 +2,7 @@ package br.com.mv.mvspring.domain.cliente;
 
 import br.com.mv.mvspring.domain.common.Entidade;
 import br.com.mv.mvspring.domain.logistica.Cidade;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,6 +23,7 @@ public class Endereco extends Entidade implements Serializable {
     @Column
     private String cep;
 
+    @JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;

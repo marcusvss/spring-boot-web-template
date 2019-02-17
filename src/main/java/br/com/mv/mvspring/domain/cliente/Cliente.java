@@ -1,6 +1,7 @@
 package br.com.mv.mvspring.domain.cliente;
 
 import br.com.mv.mvspring.domain.common.Entidade;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -25,6 +26,7 @@ public class Cliente extends Entidade implements Serializable {
     @Column
     private Integer tipoPessoa;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<>();
 

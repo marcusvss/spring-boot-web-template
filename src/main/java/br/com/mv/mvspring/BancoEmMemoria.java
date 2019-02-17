@@ -144,7 +144,7 @@ public class BancoEmMemoria implements CommandLineRunner {
 
 
         end1 = new Endereco("Rua Jose machado", 32, "Jardim Machado", "12123-123", pf1, campinas);
-        end2 = new Endereco("Av. Rua Barbosa", 82, "Parque Empresarial", "123555-123", pf1, campinas);
+        end2 = new Endereco("Av. Ruy Barbosa", 82, "Parque Empresarial", "12355-123", pf1, campinas);
         end3 = new Endereco("Rua Jose machado", 57, "Jardim Marcondes", "12123-123", pf2, campinas);
         end4 = new Endereco("Rua da Lua", 87, "Jardim Machado", "12123-123", pf3, saothome);
         end5 = new Endereco("Faixa Amarela", 666, "Jardim Bonito", "12123-123", pj1, niteroi);
