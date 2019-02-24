@@ -32,5 +32,7 @@ Adding Cidade and Estado domain
   - Create entities Cidade and Estado
   - Create endPoint <code>/estados/</code>
   - Using <code>@OneToMany</code> and <code>@ManyToOne</code> to relation the domains
-  
-
+    
+Let's introducing new domains like <code>Endereco</code> and <code>Cliente</code>  
+   - Create entities Cliente and Endereco
+   - Create rest service to expose information of Cliente and Endereco as like as yours relationship
