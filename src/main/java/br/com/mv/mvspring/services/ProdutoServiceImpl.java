@@ -1,7 +1,7 @@
 package br.com.mv.mvspring.services;
 
 import br.com.mv.mvspring.domain.estoque.Produto;
-import br.com.mv.mvspring.repositories.ProdutoRepository;
+import br.com.mv.mvspring.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

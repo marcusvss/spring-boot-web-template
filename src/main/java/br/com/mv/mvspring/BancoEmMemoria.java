@@ -7,7 +7,7 @@ import br.com.mv.mvspring.domain.estoque.Categoria;
 import br.com.mv.mvspring.domain.estoque.Produto;
 import br.com.mv.mvspring.domain.logistica.Cidade;
 import br.com.mv.mvspring.domain.logistica.Estado;
-import br.com.mv.mvspring.repositories.*;
+import br.com.mv.mvspring.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

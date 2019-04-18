@@ -1,4 +1,4 @@
-package br.com.mv.mvspring.repositories;
+package br.com.mv.mvspring.repository;
 
 import br.com.mv.mvspring.domain.estoque.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;

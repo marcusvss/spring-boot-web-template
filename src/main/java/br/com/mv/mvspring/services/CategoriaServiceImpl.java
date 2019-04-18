@@ -2,7 +2,7 @@ package br.com.mv.mvspring.services;
 
 import br.com.mv.mvspring.domain.estoque.Categoria;
 import br.com.mv.mvspring.exceptions.ObjectNotFoundException;
-import br.com.mv.mvspring.repositories.CategoriaRepository;
+import br.com.mv.mvspring.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

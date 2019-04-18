@@ -1,7 +1,7 @@
 package br.com.mv.mvspring.services;
 
 import br.com.mv.mvspring.domain.logistica.Cidade;
-import br.com.mv.mvspring.repositories.CidadeRepository;
+import br.com.mv.mvspring.repository.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

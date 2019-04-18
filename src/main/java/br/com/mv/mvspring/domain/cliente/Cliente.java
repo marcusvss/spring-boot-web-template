@@ -1,6 +1,7 @@
 package br.com.mv.mvspring.domain.cliente;
 
 import br.com.mv.mvspring.domain.common.Entidade;
+import br.com.mv.mvspring.domain.estoque.Pedido;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -33,6 +34,10 @@ public class Cliente extends Entidade implements Serializable {
     @ElementCollection
     @CollectionTable(name = "TELEFONE")
     private Set<String> telefones = new HashSet<>();
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos = new ArrayList<>();
 
     public Cliente() {
     }
