@@ -4,14 +4,28 @@ import br.com.mv.mvspring.domain.cliente.Cliente;
 import br.com.mv.mvspring.domain.cliente.Endereco;
 import br.com.mv.mvspring.domain.cliente.TipoPessoa;
 import br.com.mv.mvspring.domain.estoque.Categoria;
+import br.com.mv.mvspring.domain.estoque.Pedido;
 import br.com.mv.mvspring.domain.estoque.Produto;
+import br.com.mv.mvspring.domain.financeiro.EstadoPagamento;
+import br.com.mv.mvspring.domain.financeiro.Pagamento;
+import br.com.mv.mvspring.domain.financeiro.PagamentoBoleto;
+import br.com.mv.mvspring.domain.financeiro.PagamentoCartao;
 import br.com.mv.mvspring.domain.logistica.Cidade;
 import br.com.mv.mvspring.domain.logistica.Estado;
-import br.com.mv.mvspring.repository.*;
+import br.com.mv.mvspring.repository.CategoriaRepository;
+import br.com.mv.mvspring.repository.CidadeRepository;
+import br.com.mv.mvspring.repository.ClienteRepository;
+import br.com.mv.mvspring.repository.EnderecoRepository;
+import br.com.mv.mvspring.repository.EstadoRespository;
+import br.com.mv.mvspring.repository.PagamentoRepository;
+import br.com.mv.mvspring.repository.PedidoRepository;
+import br.com.mv.mvspring.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 @Component
@@ -34,6 +48,11 @@ public class BancoEmMemoria implements CommandLineRunner {
 
     @Autowired
     private EnderecoRepository enderecoRepository;
+    @Autowired
+    private PedidoRepository pedidoRepository;
+
+    @Autowired
+    private PagamentoRepository pagamentoRepository;
 
     Estado sp;
     Estado rj;
@@ -74,6 +93,10 @@ public class BancoEmMemoria implements CommandLineRunner {
 
     Endereco end7;
     Endereco end8;
+    Pedido ped1;
+    Pedido ped2;
+    Pagamento pag1;
+    Pagamento pag2;
 
 
     @Override
@@ -81,6 +104,26 @@ public class BancoEmMemoria implements CommandLineRunner {
         populandoCategoriaEProduto();
         populaEstadosECidades();
         populandoCliente();
+        populandoPedido();
+    }
+
+    private void populandoPedido() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+
+        ped1 = new Pedido(sdf.parse("30/09/2017 10:32"), pf1, end1);
+        ped2 = new Pedido(sdf.parse("10/12/2017 19:35"), pf1, end2);
+
+        pag1 = new PagamentoCartao(EstadoPagamento.QUITADO.getValor(), ped1, 6);
+        ped1.setPagamento(pag1);
+
+        pag2 = new PagamentoBoleto(EstadoPagamento.AGUARDANDO_PAGAMENTO.getValor(), ped2, sdf.parse("20/10/2017 00:00"), null);
+        ped2.setPagamento(pag2);
+
+        pedidoRepository.saveAll(Arrays.asList(ped1, ped2));
+        pagamentoRepository.saveAll(Arrays.asList(pag1, pag2));
+
+        pf1.getPedidos().addAll(Arrays.asList(ped1, ped2));
+        clienteRepository.save(pf1);
     }
 
     private void populaEstadosECidades() {

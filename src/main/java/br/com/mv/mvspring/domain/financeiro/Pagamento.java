@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Pagamento implements Serializable {
+public abstract class Pagamento implements Serializable {
 
     private static final long serialVersionUID = 3069754311194660835L;
 
@@ -27,8 +27,12 @@ public class Pagamento implements Serializable {
     @MapsId
     private Pedido pedido;
 
-    public Pagamento(Integer estadoPagamento) {
+    public Pagamento() {
+    }
+
+    public Pagamento(Integer estadoPagamento, Pedido pedido) {
         this.estadoPagamento = estadoPagamento;
+        this.pedido = pedido;
     }
 
     public EstadoPagamento getEstadoPagamento() {

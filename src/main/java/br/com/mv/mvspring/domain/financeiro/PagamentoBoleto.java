@@ -1,5 +1,7 @@
 package br.com.mv.mvspring.domain.financeiro;
 
+import br.com.mv.mvspring.domain.estoque.Pedido;
+
 import javax.persistence.Entity;
 import java.util.Date;
 
@@ -12,8 +14,11 @@ public class PagamentoBoleto extends Pagamento {
 
     private Date dataPagamento;
 
-    public PagamentoBoleto(int estadoPagamento, Date dataVencimento, Date dataPagamento) {
-        super(estadoPagamento);
+    public PagamentoBoleto() {
+    }
+
+    public PagamentoBoleto(int estadoPagamento, Pedido pedido, Date dataVencimento, Date dataPagamento) {
+        super(estadoPagamento, pedido);
         this.dataVencimento = dataVencimento;
         this.dataPagamento = dataPagamento;
     }

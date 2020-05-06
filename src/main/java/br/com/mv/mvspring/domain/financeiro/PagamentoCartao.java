@@ -1,5 +1,7 @@
 package br.com.mv.mvspring.domain.financeiro;
 
+import br.com.mv.mvspring.domain.estoque.Pedido;
+
 import javax.persistence.Entity;
 
 @Entity
@@ -9,8 +11,11 @@ public class PagamentoCartao extends Pagamento {
 
     private Integer numeroParcelas;
 
-    public PagamentoCartao(int estadoPagamento, Integer numeroParcelas) {
-        super(estadoPagamento);
+    public PagamentoCartao() {
+    }
+
+    public PagamentoCartao(int estadoPagamento, Pedido pedido, Integer numeroParcelas) {
+        super(estadoPagamento, pedido);
         this.numeroParcelas = numeroParcelas;
     }
 

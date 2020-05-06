@@ -35,10 +35,8 @@ public class Pedido extends Entidade implements Serializable {
     public Pedido() {
     }
 
-    public Pedido(Long id, Date dataPedido, Pagamento pagamento, Cliente cliente, Endereco endereco) {
-        super(id);
+    public Pedido(Date dataPedido, Cliente cliente, Endereco endereco) {
         this.dataPedido = dataPedido;
-        this.pagamento = pagamento;
         this.cliente = cliente;
         this.endereco = endereco;
     }
